@@ -21,6 +21,7 @@
 		B0FA1DF729A802BC00AA44ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B0FA1DFE29A802C400AA44ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0FA1DFF29A802F300AA44ED /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B0FA1E0029A8036400AA44ED /* LineUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LineUp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 		B0FA1DEF29A802BB00AA44ED /* LineUp */ = {
 			isa = PBXGroup;
 			children = (
+				B0FA1E0029A8036400AA44ED /* LineUp.entitlements */,
 				B0FA1DF029A802BB00AA44ED /* LineUpApp.swift */,
 				B0FA1DF229A802BB00AA44ED /* ContentView.swift */,
 				B0FA1DF429A802BC00AA44ED /* Assets.xcassets */,
@@ -268,6 +270,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LineUp/LineUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LineUp/Preview Content\"";
@@ -297,6 +300,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LineUp/LineUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LineUp/Preview Content\"";
