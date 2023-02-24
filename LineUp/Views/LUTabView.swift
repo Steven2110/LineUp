@@ -10,7 +10,7 @@ import SwiftUI
 struct LUTabView: View {
     var body: some View {
         TabView {
-            Text("Hello, List!")
+            LUListView()
                 .tabItem {
                     Label("LineUp", systemImage: "list.bullet.clipboard")
                 }
