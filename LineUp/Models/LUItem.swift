@@ -13,7 +13,7 @@ struct LUItem: Identifiable {
     var name: String
     var labelIcon: String
     @State var isComplete: Bool = false
-    var subItems: [LUItem]? = nil
+    var reminderDay: [DayOfTheWeek] = [DayOfTheWeek]()
     
     func updateComplete() {
         isComplete = true
