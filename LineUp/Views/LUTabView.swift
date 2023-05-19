@@ -14,7 +14,7 @@ struct LUTabView: View {
                 .tabItem {
                     Label("LineUp", systemImage: "list.bullet.clipboard")
                 }
-            Text("Hello, Calendar!")
+            LUCalendarView()
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }

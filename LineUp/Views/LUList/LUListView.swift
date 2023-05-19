@@ -9,38 +9,7 @@ import SwiftUI
 
 struct LUListView: View {
     
-    @State private var listLU : [LUItem] = [
-        LUItem(
-            name: "List 1",
-            labelIcon: "😆",
-            reminderDay: [
-                DayOfTheWeek.daysOfTheWeek[0],
-                DayOfTheWeek.daysOfTheWeek[2],
-                DayOfTheWeek.daysOfTheWeek[5]
-            ]
-        ),
-        LUItem(
-            name: "List 2",
-            labelIcon: "😎",
-            isComplete: true,
-            reminderDay: [
-                DayOfTheWeek.daysOfTheWeek[0],
-                DayOfTheWeek.daysOfTheWeek[2],
-                DayOfTheWeek.daysOfTheWeek[4],
-                DayOfTheWeek.daysOfTheWeek[3]
-            ]
-        ),
-        LUItem(
-            name: "Crazy list 3",
-            labelIcon: "🤬",
-            reminderDay: [
-                DayOfTheWeek.daysOfTheWeek[0],
-                DayOfTheWeek.daysOfTheWeek[1],
-                DayOfTheWeek.daysOfTheWeek[3],
-                DayOfTheWeek.daysOfTheWeek[6]
-            ]
-        )
-    ]
+    @State private var listLU : [LUItem] = mockupList
     @State private var todayListLU: [LUItem] = [LUItem]()
     @State private var multiSelection = Set<UUID>()
     
@@ -50,20 +19,7 @@ struct LUListView: View {
         NavigationView {
             ZStack {
                 List($todayListLU, editActions: .delete) { $item in
-                    HStack(spacing: 15) {
-                        Text(item.labelIcon)
-                            .rotationEffect(item.isComplete ? .degrees(0) : .degrees(180))
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .strikethrough(item.isComplete, color: .red)
-                                .foregroundColor(item.isComplete ? .secondary : .primary)
-                            HStack {
-                                ForEach(item.reminderDay) { day in
-                                    Text(day.shortValue)
-                                }
-                            }
-                        }
-                    }.onTapGesture { withAnimation { item.isComplete.toggle() } }
+                    LURowView(luItem: item, currDay: currDateOfTheWeek).onTapGesture { withAnimation { item.updateStatus(day: currDateOfTheWeek) } }
                 }
                 VStack {
                     Spacer()

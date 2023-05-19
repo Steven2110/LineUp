@@ -15,6 +15,9 @@
 		B0660CFF29A8E5E200DCFA12 /* DayOfTheWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0660CFE29A8E5E200DCFA12 /* DayOfTheWeek.swift */; };
 		B0660D0129A8E66E00DCFA12 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0660D0029A8E66E00DCFA12 /* DateExt.swift */; };
 		B0660D0329A8F5B100DCFA12 /* LULabelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0660D0229A8F5B100DCFA12 /* LULabelPicker.swift */; };
+		B0A40DE82A174D510013B4E1 /* LUCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DE72A174D510013B4E1 /* LUCalendarView.swift */; };
+		B0A40DEA2A174D7C0013B4E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DE92A174D7C0013B4E1 /* Constants.swift */; };
+		B0A40DEC2A174EC10013B4E1 /* LURowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DEB2A174EC10013B4E1 /* LURowView.swift */; };
 		B0FA1DF129A802BB00AA44ED /* LineUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA1DF029A802BB00AA44ED /* LineUpApp.swift */; };
 		B0FA1DF329A802BB00AA44ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA1DF229A802BB00AA44ED /* ContentView.swift */; };
 		B0FA1DF529A802BC00AA44ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FA1DF429A802BC00AA44ED /* Assets.xcassets */; };
@@ -31,6 +34,9 @@
 		B0660CFE29A8E5E200DCFA12 /* DayOfTheWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfTheWeek.swift; sourceTree = "<group>"; };
 		B0660D0029A8E66E00DCFA12 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		B0660D0229A8F5B100DCFA12 /* LULabelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LULabelPicker.swift; sourceTree = "<group>"; };
+		B0A40DE72A174D510013B4E1 /* LUCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUCalendarView.swift; sourceTree = "<group>"; };
+		B0A40DE92A174D7C0013B4E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B0A40DEB2A174EC10013B4E1 /* LURowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LURowView.swift; sourceTree = "<group>"; };
 		B0FA1DED29A802BB00AA44ED /* LineUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LineUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FA1DF029A802BB00AA44ED /* LineUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineUpApp.swift; sourceTree = "<group>"; };
 		B0FA1DF229A802BB00AA44ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,10 +82,19 @@
 			isa = PBXGroup;
 			children = (
 				B025FCB129A809BC006EFB81 /* LUListView.swift */,
+				B0A40DEB2A174EC10013B4E1 /* LURowView.swift */,
 				B0660CF629A88E8200DCFA12 /* LUAddView.swift */,
 				B0660D0229A8F5B100DCFA12 /* LULabelPicker.swift */,
 			);
 			path = LUList;
+			sourceTree = "<group>";
+		};
+		B0A40DE62A174D400013B4E1 /* LUCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				B0A40DE72A174D510013B4E1 /* LUCalendarView.swift */,
+			);
+			path = LUCalendar;
 			sourceTree = "<group>";
 		};
 		B0FA1DE429A802BB00AA44ED = {
@@ -106,6 +121,7 @@
 				B0FA1E0029A8036400AA44ED /* LineUp.entitlements */,
 				B0FA1DF029A802BB00AA44ED /* LineUpApp.swift */,
 				B0FA1DF229A802BB00AA44ED /* ContentView.swift */,
+				B0A40DE92A174D7C0013B4E1 /* Constants.swift */,
 				B025FCB329A809F1006EFB81 /* Models */,
 				B025FCAC29A80637006EFB81 /* Extensions */,
 				B0FA1E0129A8038300AA44ED /* Views */,
@@ -127,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				B0FA1E0229A8038E00AA44ED /* LUTabView.swift */,
+				B0A40DE62A174D400013B4E1 /* LUCalendar */,
 				B0660D0429A8F6E800DCFA12 /* LUList */,
 			);
 			path = Views;
@@ -206,8 +223,11 @@
 				B025FCB229A809BC006EFB81 /* LUListView.swift in Sources */,
 				B025FCAE29A80643006EFB81 /* ColorExt.swift in Sources */,
 				B0660CF729A88E8300DCFA12 /* LUAddView.swift in Sources */,
+				B0A40DEC2A174EC10013B4E1 /* LURowView.swift in Sources */,
 				B0660CF929A8910100DCFA12 /* ViewExt.swift in Sources */,
+				B0A40DE82A174D510013B4E1 /* LUCalendarView.swift in Sources */,
 				B0FA1DF329A802BB00AA44ED /* ContentView.swift in Sources */,
+				B0A40DEA2A174D7C0013B4E1 /* Constants.swift in Sources */,
 				B0FA1DF129A802BB00AA44ED /* LineUpApp.swift in Sources */,
 				B0660D0129A8E66E00DCFA12 /* DateExt.swift in Sources */,
 				B0660D0329A8F5B100DCFA12 /* LULabelPicker.swift in Sources */,
