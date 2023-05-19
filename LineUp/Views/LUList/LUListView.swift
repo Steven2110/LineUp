@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LUListView: View {
     
-    private var listLU : [LUItem] = [
+    @State private var listLU : [LUItem] = [
         LUItem(
             name: "List 1",
             labelIcon: "😆",
@@ -41,6 +41,7 @@ struct LUListView: View {
             ]
         )
     ]
+    @State private var todayListLU: [LUItem] = [LUItem]()
     @State private var multiSelection = Set<UUID>()
     
     @State private var currDateOfTheWeek: DayOfTheWeek = DayOfTheWeek.daysOfTheWeek[0]
@@ -48,34 +49,34 @@ struct LUListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List(listLU.filter{ $0.reminderDay.contains(currDateOfTheWeek) }) { item in
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text(item.labelIcon)
-                                .rotationEffect(item.isComplete ? .degrees(0) : .degrees(180))
+                List($todayListLU, editActions: .delete) { $item in
+                    HStack(spacing: 15) {
+                        Text(item.labelIcon)
+                            .rotationEffect(item.isComplete ? .degrees(0) : .degrees(180))
+                        VStack(alignment: .leading) {
                             Text(item.name)
                                 .strikethrough(item.isComplete, color: .red)
                                 .foregroundColor(item.isComplete ? .secondary : .primary)
-                        }
-                        HStack {
-                            ForEach(item.reminderDay) { day in
-                                Text(day.shortValue)
+                            HStack {
+                                ForEach(item.reminderDay) { day in
+                                    Text(day.shortValue)
+                                }
                             }
-                        }.padding(.leading, 31)
-                    }
+                        }
+                    }.onTapGesture { withAnimation { item.isComplete.toggle() } }
                 }
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
                         NavigationLink {
-                            LUAddView()
+                            LUAddView(list: $listLU)
                         } label: {
                             Image(systemName: "plus")
                                 .font(.largeTitle)
                                 .frame(width: 75, height: 75)
                                 .foregroundColor(.white)
-                                .background(Color.blue)
+                                .background(Color.brandPrimary)
                                 .clipShape(Circle())
                         }.padding(20)
                     }
@@ -90,6 +91,7 @@ struct LUListView: View {
                     dateInt -= 2
                 }
                 currDateOfTheWeek = DayOfTheWeek.daysOfTheWeek[dateInt]
+                todayListLU = listLU.filter{ $0.reminderDay.contains(currDateOfTheWeek) }
             }
         }
     }

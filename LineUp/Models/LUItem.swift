@@ -12,11 +12,11 @@ struct LUItem: Identifiable {
     let id: UUID = UUID()
     var name: String
     var labelIcon: String
-    @State var isComplete: Bool = false
+    var isComplete: Bool = false
     var reminderDay: [DayOfTheWeek] = [DayOfTheWeek]()
     
-    func updateComplete() {
-        isComplete = true
+    mutating func updateComplete() {
+        isComplete.toggle()
     }
 }
 

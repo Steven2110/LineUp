@@ -9,10 +9,13 @@ import SwiftUI
 
 struct LUAddView: View {
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @Binding var list: [LUItem]
+    
     @State var taskName: String = ""
     @State var labelIcon: String = "😎"
     
-    @State var days: [DayOfTheWeek] = DayOfTheWeek.daysOfTheWeek
     @State var selectedDay: [DayOfTheWeek] = [DayOfTheWeek]()
     
     @State var addTimeReminder: Bool = true
@@ -53,6 +56,19 @@ struct LUAddView: View {
                 }
             }
             Spacer()
+            Button {
+                if isValidItem() {
+                    list.append(LUItem(name: taskName, labelIcon: labelIcon, reminderDay: selectedDay))
+                }
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Save")
+                    .foregroundColor(.white)
+                    .frame(width: 100)
+                    .padding()
+                    .background(Color.brandPrimary)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
         }
         .padding(10)
         .navigationTitle("Add LineUp")
@@ -125,6 +141,12 @@ struct DayReminderPicker: View {
 
 struct LUAddView_Previews: PreviewProvider {
     static var previews: some View {
-        LUAddView()
+        LUAddView(list: .constant([LUItem]()))
+    }
+}
+
+extension LUAddView {
+    private func isValidItem() -> Bool {
+        taskName != "" && labelIcon != "" && !selectedDay.isEmpty
     }
 }
