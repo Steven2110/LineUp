@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LUListView: View {
     
+    @EnvironmentObject var vm: LUItemViewModel
     @State private var listLU : [LUItem] = mockupList
     @State private var todayListLU: [LUItem] = [LUItem]()
     @State private var multiSelection = Set<UUID>()
@@ -18,22 +19,18 @@ struct LUListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List($todayListLU, editActions: .delete) { $item in
-                    LURowView(luItem: item, currDay: currDateOfTheWeek).onTapGesture { withAnimation { item.updateStatus(day: currDateOfTheWeek) } }
+                List(vm.todayList) { item in
+                    LURowView(luItem: item, currDay: currDateOfTheWeek).onTapGesture { withAnimation { vm.updateStatus(forItem: item) } }
                 }
                 VStack {
                     Spacer()
                     HStack {
                         Spacer()
                         NavigationLink {
-                            LUAddView(list: $listLU)
+                            LUAddView()
+                                .environmentObject(vm)
                         } label: {
-                            Image(systemName: "plus")
-                                .font(.largeTitle)
-                                .frame(width: 75, height: 75)
-                                .foregroundColor(.white)
-                                .background(Color.brandPrimary)
-                                .clipShape(Circle())
+                            addButton
                         }.padding(20)
                     }
                 }
@@ -56,5 +53,16 @@ struct LUListView: View {
 struct LUList_Previews: PreviewProvider {
     static var previews: some View {
         LUListView()
+    }
+}
+
+extension LUListView {
+    private var addButton: some View {
+        Image(systemName: "plus")
+            .font(.largeTitle)
+            .frame(width: 75, height: 75)
+            .foregroundColor(.white)
+            .background(Color.brandPrimary)
+            .clipShape(Circle())
     }
 }

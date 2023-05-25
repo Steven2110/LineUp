@@ -7,12 +7,15 @@
 
 import SwiftUI
 
-struct LUWeeklyCalendarView: View {    
+struct LUWeeklyCalendarView: View {
+    
+    @EnvironmentObject var vm: LUItemViewModel
+    
     var body: some View {
         List {
-            ForEach(weeksList.indices, id: \.self) { i in
+            ForEach(vm.weeklyList.indices, id: \.self) { i in
                 Section {
-                    ForEach(weeksList[i], id: \.id) { item in
+                    ForEach(vm.weeklyList[i], id: \.id) { item in
                         LURowView(luItem: item, currDay: DayOfTheWeek.daysOfTheWeek[i])
                     }
                 } header: {

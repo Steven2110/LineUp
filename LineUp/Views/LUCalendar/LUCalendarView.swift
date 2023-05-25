@@ -9,32 +9,9 @@ import SwiftUI
 
 struct LUCalendarView: View {
     
-    @State private var selection: CalendarViewType = .weekly
+    @EnvironmentObject var vm: LUItemViewModel
     
-    private var mondayList: [LUItem] {
-        mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[0])}
-    }
-    private var tuesdayList: [LUItem] {
-        mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[1])}
-    }
-    private var wednesdayList: [LUItem] {
-        mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[2])}
-    }
-    private var thursdayList: [LUItem] {
-        mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[3])}
-    }
-    private var fridayList: [LUItem] {
-        mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[4])}
-    }
-    private var saturdayList: [LUItem] {
-        mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[5])}
-    }
-    private var sundayList: [LUItem] {
-        mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[6])}
-    }
-    private var weeksList: [[LUItem]] {
-        [mondayList, tuesdayList, wednesdayList, thursdayList, fridayList, saturdayList, sundayList]
-    }
+    @State private var selection: CalendarViewType = .weekly
     
     var body: some View {
         NavigationView {
@@ -42,8 +19,10 @@ struct LUCalendarView: View {
                 switch selection {
                 case .weekly:
                     LUWeeklyCalendarView()
+                        .environmentObject(vm)
                 case .daily:
                     LUDailyCalendarView()
+                        .environmentObject(vm)
                 }
             }
             .toolbar {

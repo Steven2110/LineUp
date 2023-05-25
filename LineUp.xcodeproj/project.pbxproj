@@ -16,6 +16,8 @@
 		B0660D0129A8E66E00DCFA12 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0660D0029A8E66E00DCFA12 /* DateExt.swift */; };
 		B0660D0329A8F5B100DCFA12 /* LULabelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0660D0229A8F5B100DCFA12 /* LULabelPicker.swift */; };
 		B095ED092A1F66FA00C6D653 /* LUWeeklyCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B095ED082A1F66FA00C6D653 /* LUWeeklyCalendarView.swift */; };
+		B095ED0C2A1F6A6600C6D653 /* LUItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B095ED0B2A1F6A6600C6D653 /* LUItemViewModel.swift */; };
+		B095ED0E2A1F852D00C6D653 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B095ED0D2A1F852D00C6D653 /* Utils.swift */; };
 		B0A40DE82A174D510013B4E1 /* LUCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DE72A174D510013B4E1 /* LUCalendarView.swift */; };
 		B0A40DEA2A174D7C0013B4E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DE92A174D7C0013B4E1 /* Constants.swift */; };
 		B0A40DEC2A174EC10013B4E1 /* LURowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DEB2A174EC10013B4E1 /* LURowView.swift */; };
@@ -38,6 +40,8 @@
 		B0660D0029A8E66E00DCFA12 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		B0660D0229A8F5B100DCFA12 /* LULabelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LULabelPicker.swift; sourceTree = "<group>"; };
 		B095ED082A1F66FA00C6D653 /* LUWeeklyCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUWeeklyCalendarView.swift; sourceTree = "<group>"; };
+		B095ED0B2A1F6A6600C6D653 /* LUItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUItemViewModel.swift; sourceTree = "<group>"; };
+		B095ED0D2A1F852D00C6D653 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B0A40DE72A174D510013B4E1 /* LUCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUCalendarView.swift; sourceTree = "<group>"; };
 		B0A40DE92A174D7C0013B4E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0A40DEB2A174EC10013B4E1 /* LURowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LURowView.swift; sourceTree = "<group>"; };
@@ -95,6 +99,14 @@
 			path = LUList;
 			sourceTree = "<group>";
 		};
+		B095ED0A2A1F6A3D00C6D653 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B095ED0B2A1F6A6600C6D653 /* LUItemViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		B0A40DE62A174D400013B4E1 /* LUCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +143,10 @@
 				B0FA1DF029A802BB00AA44ED /* LineUpApp.swift */,
 				B0FA1DF229A802BB00AA44ED /* ContentView.swift */,
 				B0A40DE92A174D7C0013B4E1 /* Constants.swift */,
+				B095ED0D2A1F852D00C6D653 /* Utils.swift */,
 				B025FCB329A809F1006EFB81 /* Models */,
 				B025FCAC29A80637006EFB81 /* Extensions */,
+				B095ED0A2A1F6A3D00C6D653 /* ViewModels */,
 				B0FA1E0129A8038300AA44ED /* Views */,
 				B0FA1DF429A802BC00AA44ED /* Assets.xcassets */,
 				B0FA1DF629A802BC00AA44ED /* Preview Content */,
@@ -234,6 +248,7 @@
 				B025FCAE29A80643006EFB81 /* ColorExt.swift in Sources */,
 				B0660CF729A88E8300DCFA12 /* LUAddView.swift in Sources */,
 				B0A40DEC2A174EC10013B4E1 /* LURowView.swift in Sources */,
+				B095ED0C2A1F6A6600C6D653 /* LUItemViewModel.swift in Sources */,
 				B0660CF929A8910100DCFA12 /* ViewExt.swift in Sources */,
 				B0A40DE82A174D510013B4E1 /* LUCalendarView.swift in Sources */,
 				B0FA1DF329A802BB00AA44ED /* ContentView.swift in Sources */,
@@ -244,6 +259,7 @@
 				B0A40DF02A18B8680013B4E1 /* LUDailyList.swift in Sources */,
 				B0660D0329A8F5B100DCFA12 /* LULabelPicker.swift in Sources */,
 				B025FCB529A80A05006EFB81 /* LUItem.swift in Sources */,
+				B095ED0E2A1F852D00C6D653 /* Utils.swift in Sources */,
 				B0660CFF29A8E5E200DCFA12 /* DayOfTheWeek.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

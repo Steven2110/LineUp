@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct LUTabView: View {
+    @ObservedObject var vmLUItem: LUItemViewModel = LUItemViewModel()
+    
     var body: some View {
         TabView {
             LUListView()
+                .environmentObject(vmLUItem)
                 .tabItem {
                     Label("LineUp", systemImage: "list.bullet.clipboard")
                 }
             LUCalendarView()
+                .environmentObject(vmLUItem)
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }

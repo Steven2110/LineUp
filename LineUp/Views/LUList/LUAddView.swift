@@ -9,9 +9,9 @@ import SwiftUI
 
 struct LUAddView: View {
     
+    @EnvironmentObject var vm: LUItemViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Binding var list: [LUItem]
     
     @State var taskName: String = ""
     @State var labelIcon: String = "😎"
@@ -58,7 +58,8 @@ struct LUAddView: View {
             Spacer()
             Button {
                 if isValidItem() {
-                    list.append(LUItem(name: taskName, labelIcon: labelIcon, reminderDay: selectedDay))
+                    var item: LUItem = LUItem(name: taskName, labelIcon: labelIcon, reminderDay: selectedDay)
+                    vm.addItem(item)
                 }
                 presentationMode.wrappedValue.dismiss()
             } label: {
@@ -141,7 +142,7 @@ struct DayReminderPicker: View {
 
 struct LUAddView_Previews: PreviewProvider {
     static var previews: some View {
-        LUAddView(list: .constant([LUItem]()))
+        LUAddView()
     }
 }
 
