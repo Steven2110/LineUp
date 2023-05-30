@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct LUAddView: View {
     
@@ -58,7 +59,7 @@ struct LUAddView: View {
             Spacer()
             Button {
                 if isValidItem() {
-                    var item: LUItem = LUItem(name: taskName, labelIcon: labelIcon, reminderDay: selectedDay)
+                    let item: LUItem = LUItem(name: taskName, labelIcon: labelIcon, reminderDay: selectedDay)
                     vm.addItem(item)
                 }
                 presentationMode.wrappedValue.dismiss()
@@ -149,5 +150,30 @@ struct LUAddView_Previews: PreviewProvider {
 extension LUAddView {
     private func isValidItem() -> Bool {
         taskName != "" && labelIcon != "" && !selectedDay.isEmpty
+    }
+    
+    private func fetchReminderDateData() async -> [CKRecord] {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: RecordType.dayOfTheWeek, predicate: predicate)
+        var records: [CKRecord] = [CKRecord]()
+        
+        do {
+            let record = try await CKContainer.default().publicCloudDatabase.records(matching: query)
+            print("THIS RECORD: \(record)")
+            print(type(of: record))
+            print("Type of matchResults: \(type(of: record.matchResults))")
+            for eachRecord in record.matchResults {
+                switch eachRecord.1 {
+                case .success(let record):
+                    print("HERE IS THE RECORD: \(record)")
+                    records.append(record)
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }
+            return records
+        } catch {
+            return [CKRecord]()
+        }
     }
 }

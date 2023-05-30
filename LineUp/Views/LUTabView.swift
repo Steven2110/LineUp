@@ -28,6 +28,9 @@ struct LUTabView: View {
                 }
         }
         .accentColor(.brandPrimary)
+        .task {
+            vmLUItem.dayOfTheWeek = await CloudKitManager.shared.fetchReminderDateData()
+        }
     }
 }
 

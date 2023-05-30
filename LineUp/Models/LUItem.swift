@@ -5,15 +5,21 @@
 //  Created by Steven Wijaya on 24.02.2023.
 //
 
-import SwiftUI
+import CloudKit
 
 
 struct LUItem: Identifiable {
     let id: UUID = UUID()
+//    let ckRecordId: CKRecord.ID
     var name: String
     var labelIcon: String
     var isCompletes: [Complete] = [Complete]()
     var reminderDay: [DayOfTheWeek] = [DayOfTheWeek]()
+    
+    static let kName = "name"
+    static let kLabelIcon = "labelIcon"
+    static let kIsCompletes = "isCompletes"
+    static let kReminderDay = "reminderDay"
     
     init(name: String, labelIcon: String, reminderDay: [DayOfTheWeek]) {
         self.name = name
@@ -22,6 +28,13 @@ struct LUItem: Identifiable {
         for day in reminderDay {
             isCompletes.append(Complete(day: day))
         }
+    }
+    
+    init(record: CKRecord) {
+//        ckRecordId = record.recordID
+        name = record[LUItem.kName] as? String ?? "N/A"
+        labelIcon = record[LUItem.kLabelIcon] as? String ?? "N/A"
+//        isCompletes = record[LUItem.kIsCompletes] as? String ?? "N/A"
     }
     
     init(name: String, labelIcon: String, isCompletes: [Bool], reminderDay: [DayOfTheWeek]) {

@@ -18,6 +18,7 @@
 		B095ED092A1F66FA00C6D653 /* LUWeeklyCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B095ED082A1F66FA00C6D653 /* LUWeeklyCalendarView.swift */; };
 		B095ED0C2A1F6A6600C6D653 /* LUItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B095ED0B2A1F6A6600C6D653 /* LUItemViewModel.swift */; };
 		B095ED0E2A1F852D00C6D653 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B095ED0D2A1F852D00C6D653 /* Utils.swift */; };
+		B095ED112A20CE7200C6D653 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B095ED102A20CE7200C6D653 /* CloudKitManager.swift */; };
 		B0A40DE82A174D510013B4E1 /* LUCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DE72A174D510013B4E1 /* LUCalendarView.swift */; };
 		B0A40DEA2A174D7C0013B4E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DE92A174D7C0013B4E1 /* Constants.swift */; };
 		B0A40DEC2A174EC10013B4E1 /* LURowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A40DEB2A174EC10013B4E1 /* LURowView.swift */; };
@@ -42,6 +43,7 @@
 		B095ED082A1F66FA00C6D653 /* LUWeeklyCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUWeeklyCalendarView.swift; sourceTree = "<group>"; };
 		B095ED0B2A1F6A6600C6D653 /* LUItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUItemViewModel.swift; sourceTree = "<group>"; };
 		B095ED0D2A1F852D00C6D653 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B095ED102A20CE7200C6D653 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		B0A40DE72A174D510013B4E1 /* LUCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LUCalendarView.swift; sourceTree = "<group>"; };
 		B0A40DE92A174D7C0013B4E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0A40DEB2A174EC10013B4E1 /* LURowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LURowView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,16 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		B095ED0F2A20CE5C00C6D653 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B0A40DE92A174D7C0013B4E1 /* Constants.swift */,
+				B095ED0D2A1F852D00C6D653 /* Utils.swift */,
+				B095ED102A20CE7200C6D653 /* CloudKitManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		B0A40DE62A174D400013B4E1 /* LUCalendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +154,7 @@
 				B0FA1E0029A8036400AA44ED /* LineUp.entitlements */,
 				B0FA1DF029A802BB00AA44ED /* LineUpApp.swift */,
 				B0FA1DF229A802BB00AA44ED /* ContentView.swift */,
-				B0A40DE92A174D7C0013B4E1 /* Constants.swift */,
-				B095ED0D2A1F852D00C6D653 /* Utils.swift */,
+				B095ED0F2A20CE5C00C6D653 /* Utilities */,
 				B025FCB329A809F1006EFB81 /* Models */,
 				B025FCAC29A80637006EFB81 /* Extensions */,
 				B095ED0A2A1F6A3D00C6D653 /* ViewModels */,
@@ -256,6 +267,7 @@
 				B0A40DEE2A18B8240013B4E1 /* LUDailyCalendarView.swift in Sources */,
 				B0FA1DF129A802BB00AA44ED /* LineUpApp.swift in Sources */,
 				B0660D0129A8E66E00DCFA12 /* DateExt.swift in Sources */,
+				B095ED112A20CE7200C6D653 /* CloudKitManager.swift in Sources */,
 				B0A40DF02A18B8680013B4E1 /* LUDailyList.swift in Sources */,
 				B0660D0329A8F5B100DCFA12 /* LULabelPicker.swift in Sources */,
 				B025FCB529A80A05006EFB81 /* LUItem.swift in Sources */,

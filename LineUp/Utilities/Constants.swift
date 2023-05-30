@@ -41,29 +41,10 @@ let mockupList: [LUItem] = [
     )
 ]
 
-var mondayList: [LUItem] {
-    mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[0])}
-}
-var tuesdayList: [LUItem] {
-    mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[1])}
-}
-var wednesdayList: [LUItem] {
-    mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[2])}
-}
-var thursdayList: [LUItem] {
-    mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[3])}
-}
-var fridayList: [LUItem] {
-    mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[4])}
-}
-var saturdayList: [LUItem] {
-    mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[5])}
-}
-var sundayList: [LUItem] {
-    mockupList.filter{ $0.reminderDay.contains(DayOfTheWeek.daysOfTheWeek[6])}
-}
-var weeksList: [[LUItem]] {
-    [mondayList, tuesdayList, wednesdayList, thursdayList, fridayList, saturdayList, sundayList]
+enum RecordType {
+    static let item = "LUItem"
+    static let dayOfTheWeek = "LUDayOfTheWeek"
+    static let complete = "LUComplete"
 }
 
 enum CalendarViewType: CaseIterable, Identifiable, CustomStringConvertible {

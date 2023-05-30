@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import CloudKit
 
 final class LUItemViewModel: ObservableObject {
     
     @Published var listLU: [LUItem]
+    @Published var dayOfTheWeek: [DayOfTheWeek]?
+    
+    
     var weeklyList: [[LUItem]] {
         generateWeeklyList()
     }
@@ -60,6 +64,34 @@ final class LUItemViewModel: ObservableObject {
     }
     
     func addItem(_ item: LUItem) {
+        guard dayOfTheWeek != nil else {
+            print("ERROR FETCHING DAY OF THE WEEK")
+            return
+        }
+        
+        var selectedDayString = [String]()
+        for day in item.reminderDay {
+            selectedDayString.append(day.rawValue)
+        }
+        
+        // Create CKRecord
+        let LURecord = CKRecord(recordType: RecordType.item)
+        
+        LURecord[LUItem.kName] = item.name
+        LURecord[LUItem.kLabelIcon] = item.labelIcon
+        
+        var reminderDayReferences: [CKRecord.Reference] = [CKRecord.Reference]()
+
+        for reminderDay in dayOfTheWeek! {
+            if selectedDayString.contains(reminderDay.rawValue) {
+                reminderDayReferences.append(CKRecord.Reference(recordID: reminderDay.id, action: .deleteSelf))
+            }
+        }
+
+        LURecord[LUItem.kReminderDay] = reminderDayReferences
+        
+        CloudKitManager.shared.saveRecord(LURecord)
+        
         DispatchQueue.main.async {
             self.listLU.append(item)
         }
